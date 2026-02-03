@@ -1,0 +1,81 @@
+ <main>
+    <section id="about">
+      <div class="container">
+        <h3 style="font-family:'Merriweather'">We create memorable moments</h3>
+        <p class="muted">Stage One Event Planning specializes in intimate and large-scale events — from weddings to corporate galas. We handle logistics, design, vendor coordination, and day-of management so you can enjoy the moment.</p>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <h3 style="font-family:'Merriweather'">Our Services</h3>
+        <div class="grid">
+          <div class="card"><h4>Weddings</h4><p class="muted">Full planning, partial planning, and day-of coordination to bring your vision to life.</p></div>
+          <div class="card"><h4>Corporate Events</h4><p class="muted">Conferences, product launches, team celebrations — professional and polished.</p></div>
+          <div class="card"><h4>Private Parties</h4><p class="muted">Birthdays, anniversaries, and holiday parties with bespoke themes and entertainment.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <h3 style="font-family:'Merriweather'">Portfolio</h3>
+        <div class="grid">
+          <img src="/mnt/data/4fab231d-7922-424f-9eb4-a5587eb88610.png" alt="sample"/>
+          <img src="/mnt/data/4fab231d-7922-424f-9eb4-a5587eb88610.png" alt="sample"/>
+          <img src="/mnt/data/4fab231d-7922-424f-9eb4-a5587eb88610.png" alt="sample"/>
+          <img src="/mnt/data/4fab231d-7922-424f-9eb4-a5587eb88610.png" alt="sample"/>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <h3 style="font-family:'Merriweather'">Pricing</h3>
+        <div class="pricing-grid">
+          <div class="price"><h3>Starter</h3><p class="muted">Perfect for small gatherings</p><p style="font-size:24px;font-weight:700">$499</p></div>
+          <div class="price"><h3>Signature</h3><p class="muted">Full planning package</p><p style="font-size:24px;font-weight:700">$1,899</p></div>
+          <div class="price"><h3>Premium</h3><p class="muted">Large events & corporate</p><p style="font-size:24px;font-weight:700">Custom</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h3 style="font-family:'Merriweather'">Contact & Booking</h3>
+        <div class="contact-form">
+          <form onsubmit="event.preventDefault();alert('Thanks — we\'ll be in touch!')">
+            <label for="name">Name</label>
+            <input id="name" required placeholder="Your full name" />
+            <label for="email">Email</label>
+            <input id="email" type="email" required placeholder="you@example.com" />
+            <label for="service">Service</label>
+            <select id="service"><option>Wedding</option><option>Corporate</option><option>Private Party</option></select>
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Tell us about your event"></textarea>
+            <button class="submit">Send Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+    <script>
+    // small helper: mobile nav
+    function toggleNav(){
+      const nav = document.getElementById('mainNav');
+      if(nav.style.display === 'flex') nav.style.display = 'none'; else nav.style.display = 'flex';
+      nav.style.flexDirection = 'column'; nav.style.gap = '12px'; nav.style.alignItems = 'center';
+    }
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});} 
+      })
+    });
+  </script>

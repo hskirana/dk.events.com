@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Portfolio — Event Management System</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --purple:#15141400;
+      --purple-dark:#8c5bb7;
+      --text:#333;
+      --bg:#ffffff;
+      --max-width:1100px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family:'Open Sans',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:#222;
+      background:#5648485f;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* TOP BAR */
+    .topbar{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      background:var(--purple);
+      color:#fff;
+      padding:14px 28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      font-family:'Open Sans', sans-serif;
+      z-index:10;
+    }
+
+    .brand-mini{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .brand-mini-logo{
+      width:24px;
+      height:24px;
+      border-radius:50%;
+      background:#ffd66b url("img/logo-small.png") center/cover no-repeat;
+    }
+
+    .brand-mini span{
+      font-size:14px;
+      letter-spacing:.02em;
+      white-space:nowrap;
+    }
+
+    .top-nav ul{
+      list-style:none;
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+
+    .top-nav a{
+      font-family:'Open Sans', sans-serif;
+      font-size:16px;
+      font-weight:400;
+      color:#fff;
+      opacity:0.95;
+      letter-spacing:0.5px;
+      text-transform:none;
+      transition:0.2s ease;
+    }
+
+    .top-nav a:hover{
+      opacity:1;
+    }
+
+    .btn-book{
+      padding:10px 24px;
+      border-radius:6px;
+      border:1px solid rgba(255,255,255,.6);
+      font-size:16px;
+      font-family:'Open Sans', sans-serif;
+      font-weight:600;
+      color:#fff;
+      background:transparent;
+      text-transform:none;
+      letter-spacing:0.5px;
+      transition:0.2s ease;
+    }
+
+    .btn-book:hover{
+      background:rgba(255,255,255,0.15);
+    }
+
+    /* HERO */
+    .hero-portfolio{
+      position:relative;
+      min-height:220px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+      overflow:hidden;
+    }
+
+    .hero-portfolio::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:url("ptp.jpg") center/cover no-repeat; /* replace with your hero image */
+      filter:brightness(.6);
+      transform:scale(1.03);
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:1;
+      padding:60px 16px 60px;
+    }
+
+    .hero-title{
+      font-family:'Merriweather',serif;
+      font-size:24px;
+      margin-bottom:6px;
+    }
+
+    .hero-sub{
+      font-size:11px;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+    }
+
+    /* PORTFOLIO MASONRY */
+    .portfolio-wrap{
+      max-width:var(--max-width);
+      margin:40px auto 70px;
+      padding:0 16px 40px;
+      background:#fff;
+    }
+
+    .portfolio-grid{
+      column-count:3;          /* masonry columns */
+      column-gap:16px;
+    }
+
+    .portfolio-item{
+      break-inside:avoid;
+      margin-bottom:16px;
+      overflow:hidden;
+      border-radius:4px;
+      position:relative;
+    }
+
+    .portfolio-item img{
+      width:100%;
+      display:block;
+      border-radius:4px;
+      object-fit:cover;
+    }
+
+    /* simple overlay text on hover (optional) */
+    .portfolio-caption{
+      position:absolute;
+      inset:auto 0 0 0;
+      padding:8px 10px;
+      background:linear-gradient(to top,rgba(0,0,0,.75),transparent);
+      color:#fff;
+      font-size:11px;
+      opacity:0;
+      transition:0.2s ease;
+    }
+
+    .portfolio-item:hover .portfolio-caption{
+      opacity:1;
+    }
+
+    .portfolio-caption-title{
+      font-weight:600;
+      margin-bottom:2px;
+    }
+
+    .portfolio-caption-text{
+      font-size:10px;
+      opacity:.85;
+    }
+
+    @media (max-width:900px){
+      .portfolio-grid{
+        column-count:2;
+      }
+    }
+
+    @media (max-width:600px){
+      .topbar{
+        flex-direction:column;
+        gap:6px;
+        align-items:flex-start;
+      }
+      .top-nav ul{
+        flex-wrap:wrap;
+        justify-content:flex-end;
+      }
+      .portfolio-grid{
+        column-count:1;
+      }
+    }
+
+        /* FOOTER */
+    footer{
+      background:#0f0808bc;
+      color:#fff;
+      padding:36px 16px 18px;
+      font-size:11px;
+    }
+
+    .footer-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .footer-logo{
+      width:40px;
+      height:40px;
+      margin:0 auto 8px;
+      border-radius:50%;
+      background:#ffd66b url("img/logo-small.png") center/cover no-repeat;
+    }
+
+    .footer-brand{
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .footer-meta{
+      font-size:11px;
+      margin-bottom:14px;
+      opacity:.9;
+    }
+
+    .footer-nav{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+
+    .footer-nav a{
+      text-transform:uppercase;
+      letter-spacing:.15em;
+      font-size:9px;
+      opacity:.85;
+    }
+
+    .footer-social{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      font-size:11px;
+      opacity:.9;
+      margin-bottom:6px;
+    }
+
+    .footer-copy{
+      font-size:9px;
+      opacity:.75;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="brand-mini">
+      <div class="brand-mini-logo"></div>
+      <span>Event Management System</span>
+    </div>
+
+    <nav class="top-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="login.php">Login</a></li>
+        <li><a href="contact.php">Contact</a></li>
+        <li><a class="btn-book" href="booking.php">Book Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-portfolio">
+    <div class="hero-inner">
+      <h1 class="hero-title">Our Portfolio</h1>
+      <p class="hero-sub">Highlights from Our Past Events</p>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO GRID -->
+  <main class="portfolio-wrap">
+    <div class="portfolio-grid">
+      <!-- Replace image paths with your own -->
+      <div class="portfolio-item">
+        <img src="wc.jpeg" alt="Wedding celebration">
+        <div class="portfolio-caption">
+          <div class="portfolio-caption-title">Summer Wedding</div>
+          <div class="portfolio-caption-text">An intimate garden ceremony.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="dp.webp" alt="Dinner party table">
+        <div class="portfolio-caption">
+          <div class="portfolio-caption-title">Dinner Party</div>
+          <div class="portfolio-caption-text">Warm lighting and custom menus.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="Musicians.jpg" alt="Musicians">
+        <div class="portfolio-caption">
+          <div class="portfolio-caption-title">Live Music Gala</div>
+          <div class="portfolio-caption-text">Live orchestra for a charity event.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="cp.avif" alt="Couple celebrating">
+        <div class="portfolio-caption">
+          <div class="portfolio-caption-title">Engagement Party</div>
+          <div class="portfolio-caption-text">Cocktails, toasts, and dancing.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="hc.jpeg" alt="Holiday decor">
+        <div class="portfolio-caption">
+          <div class="portfolio-caption-title">Holiday Event</div>
+          <div class="portfolio-caption-text">Seasonal décor and lighting.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="bf.jpg" alt="Band performance">
+        <div class="portfolio-caption">
+          <div class="portfolio-caption-title">Corporate Celebration</div>
+          <div class="portfolio-caption-text">Live band and stage lighting.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="ocw.jpg" alt="Outdoor city event">
+        <div class="portfolio-caption">
+          <div class="portfolio-caption-title">Street Festival</div>
+          <div class="portfolio-caption-text">Vendors, music, and food trucks.</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="ar.jpg" alt="Amusement ride">
+        <div class="portfolio-caption">
+          <div class="portfolio-caption-title">Theme Park Night</div>
+          <div class="portfolio-caption-text">Private after-hours celebration.</div>
+        </div>
+      </div>
+
+          <div class="portfolio-item">
+        <img src="fdc.webp" alt="friends club">
+        <div class="portfolio-caption">
+          <div class="portfolio-caption-title">Theme Park Night</div>
+          <div class="portfolio-caption-text">Private after-hours celebration.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-logo"></div>
+      <div class="footer-brand">Event Management System</div>
+
+      <div class="footer-meta">
+        889 Willow Way, Maryland, MD 35209 · (555) 123-4567 · hello@stageoneevents.com
+      </div>
+
+      <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="#team">Team</a>
+        <a href="#services">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+      </div>
+
+      <div class="footer-social">
+        <span>Facebook</span> ·
+        <span>Instagram</span> ·
+        <span>X</span>
+      </div>
+
+      <div class="footer-copy">
+        © <span id="year"></span> Event Management System — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

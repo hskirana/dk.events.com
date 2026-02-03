@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us — Event Management System</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --purple:#15141400;
+      --purple-dark:#8c5bb7;
+      --yellow:#fff7b8;
+      --text:#333;
+      --bg:#ffffff;
+      --max-width:1100px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family:'Open Sans',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:#222;
+      background:#5648485f;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* TOP BAR */
+    .topbar{
+      position:absolute;
+      top:0%;
+      left:0;
+      width:100%;
+      background:var(--purple);
+      color:#fff;
+      padding:14px 28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      font-family:'Open Sans', sans-serif;
+      z-index:10;
+    }
+
+    .brand-mini{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .brand-mini-logo{
+      width:24px;
+      height:24px;
+      border-radius:50%;
+      background:#ffd66b url("img/logo-small.png") center/cover no-repeat;
+    }
+
+    .brand-mini span{
+      font-size:14px;
+      letter-spacing:.02em;
+      white-space:nowrap;
+    }
+
+    .top-nav ul{
+      list-style:none;
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+
+    /* NAV LINKS – match index style, no uppercase */
+    .top-nav a{
+      font-family:'Open Sans', sans-serif;
+      font-size:16px;
+      font-weight:400;
+      color:#fff;
+      opacity:0.95;
+      letter-spacing:0.5px;
+      text-transform:none;
+      transition:0.2s ease;
+    }
+
+    .top-nav a:hover{
+      opacity:1;
+    }
+
+    .btn-book{
+      padding:10px 24px;
+      border-radius:6px;
+      border:1px solid rgba(255,255,255,.6);
+      font-size:16px;
+      font-family:'Open Sans', sans-serif;
+      font-weight:600;
+      color:#fff;
+      background:transparent;
+      text-transform:none;
+      letter-spacing:0.5px;
+      transition:0.2s ease;
+    }
+
+    .btn-book:hover{
+      background:rgba(255,255,255,0.15);
+    }
+
+    /* HERO */
+    .hero-about{
+      position:relative;
+      min-height:260px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+      overflow:hidden;
+    }
+
+    .hero-about::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:url("ab.jpg") center/cover no-repeat; /* use your ab.jpg image */
+      filter:brightness(.7);
+      transform:scale(1.03);
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:1;
+      padding:80px 16px 80px;
+    }
+
+    .hero-kicker{
+      font-size:13px;
+      letter-spacing:.25em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
+    .hero-title{
+      font-family:'Merriweather',serif;
+      font-weight:700;
+      font-size:26px;
+    }
+
+    .hero-sub{
+      margin-top:6px;
+      font-size:12px;
+      opacity:.9;
+    }
+
+    /* ABOUT BLOCK */
+    .about-wrap{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:50px 16px 70px;
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(0,1.3fr);
+      gap:40px;
+      background:#fff;
+    }
+
+    .about-photo img{
+      width:100%;
+      height: 115%;
+      border-radius:8px;
+      object-fit:cover;
+      box-shadow:0 10px 24px rgba(0,0,0,.15);
+    }
+
+    .about-card{
+      max-width:480px;
+    }
+
+    .about-heading{
+      font-family:'Merriweather',serif;
+      font-size:22px;
+      margin-bottom:4px;
+    }
+
+    .about-subtitle{
+      font-size:13px;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:.15em;
+      margin-bottom:10px;
+      color:#999;
+    }
+
+    .about-body{
+      font-size:14px;
+      line-height:1.7;
+      margin-bottom:16px;
+      color:#555;
+    }
+
+    .about-meta{
+      font-size:12px;
+      margin-bottom:16px;
+      color:#777;
+    }
+
+    .about-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .btn-outline,
+    .btn-solid{
+      font-size:11px;
+      padding:7px 18px;
+      border-radius:999px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-weight:600;
+      border:1px solid var(--purple-dark);
+    }
+
+    .btn-solid{
+      background:var(--purple-dark);
+      color:#fff;
+    }
+
+    .btn-outline{
+      background:#fff;
+      color:var(--purple-dark);
+    }
+
+    /* TEAM SECTION */
+    .team-band{
+      background:var(--yellow);
+      padding:60px 16px 70px;
+    }
+
+    .team-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .section-kicker{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      margin-bottom:4px;
+      color:#777;
+    }
+
+    .section-title{
+      font-family:'Merriweather',serif;
+      font-size:20px;
+      margin-bottom:32px;
+    }
+
+    .team-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:26px;
+    }
+
+    .member{
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    .member img{
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      border-radius:8px 8px 0 0;
+      display:block;
+    }
+
+    .member-body{
+      background:#fffce6;
+      padding:10px 10px 16px;
+      border-radius:0 0 10px 10px;
+      box-shadow:0 6px 18px rgba(0,0,0,.08);
+    }
+
+    .member-name{
+      font-weight:600;
+      margin-bottom:2px;
+    }
+
+    .member-role{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      margin-bottom:6px;
+      color:#999;
+    }
+
+    .member-text{
+      font-size:11px;
+      color:#666;
+      margin-bottom:8px;
+    }
+
+    .member-icons{
+      font-size:11px;
+      letter-spacing:.3em;
+      color:#999;
+    }
+
+    /* CLIENTS */
+    .clients{
+      padding:40px 16px 70px;
+      background:#fff;
+    }
+
+    .clients-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .clients-title{
+      font-family:'Merriweather',serif;
+      font-size:16px;
+      margin-bottom:24px;
+    }
+
+    .clients-logos{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:26px;
+      opacity:.85;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+    }
+
+    .client-logo{
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid #ddd;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#0f08086d;
+      color:#fff;
+      padding:36px 16px 18px;
+      font-size:11px;
+    }
+
+    .footer-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .footer-logo{
+      width:40px;
+      height:40px;
+      margin:0 auto 8px;
+      border-radius:50%;
+      background:#ffd66b url("img/logo-small.png") center/cover no-repeat;
+    }
+
+    .footer-brand{
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .footer-meta{
+      font-size:11px;
+      margin-bottom:14px;
+      opacity:.9;
+    }
+
+    .footer-nav{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+
+    .footer-nav a{
+      text-transform:uppercase;
+      letter-spacing:.15em;
+      font-size:9px;
+      opacity:.85;
+    }
+
+    .footer-social{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      font-size:11px;
+      opacity:.9;
+      margin-bottom:6px;
+    }
+
+    .footer-copy{
+      font-size:9px;
+      opacity:.75;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width:900px){
+      .about-wrap{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+      .about-card{
+        margin:0 auto;
+      }
+      .about-buttons{
+        justify-content:center;
+      }
+      .team-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+
+    @media (max-width:600px){
+      .hero-title{font-size:22px}
+      .team-grid{
+        grid-template-columns:1fr;
+      }
+      .topbar{
+        flex-direction:column;
+        gap:6px;
+        align-items:flex-start;
+      }
+      .top-nav ul{
+        flex-wrap:wrap;
+        justify-content:flex-end;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="brand-mini">
+      <div class="brand-mini-logo"></div>
+      <span>Event Management System</span>
+    </div>
+
+    <nav class="top-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="login.php">Login</a></li>
+        <li><a href="contact.php">Contact</a></li>
+        <li><a class="btn-book" href="booking.php">Book Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-about">
+    <div class="hero-inner">
+      <div class="hero-kicker">About Us</div>
+      <h1 class="hero-title">Event Management System</h1>
+      <p class="hero-sub">Thoughtfully curated celebrations, from the first idea to the final toast.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT BLOCK -->
+  <main>
+    <section id="about" class="about-wrap">
+      <div class="about-photo">
+        <img src="eteam.jpeg" alt="Event planning team">
+      </div>
+
+      <article class="about-card">
+        <h2 class="about-heading">Maryland’s Event Planners Since 2014</h2>
+        <p class="about-subtitle">Personal, polished, and stress-free events</p>
+
+        <p class="about-body">
+          Our Event Planning creates celebrations that feel authentic to you and unforgettable for your
+          guests. From intimate weddings to large corporate galas, we balance creativity and organization so every
+          detail is handled with care.
+        </p>
+        <p class="about-body">
+          We partner with trusted vendors, manage timelines, and guide you through each decision, turning big ideas
+          into beautiful experiences without the overwhelm.
+        </p>
+
+        <p class="about-meta">
+          Based in Maryland and serving the surrounding region, we specialize in weddings, corporate events,
+          fundraisers, and milestone celebrations.
+        </p>
+
+        <div class="about-buttons">
+          <a href="#team" class="btn-solid">Meet Our Team</a>
+          <a href="booking.php" class="btn-outline">Book With Us</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- CLIENTS -->
+    <section class="clients">
+      <div class="clients-inner">
+        <h2 class="clients-title">Our Clients</h2>
+        <div class="clients-logos">
+          <div class="client-logo">Bright Studio</div>
+          <div class="client-logo">Minimal Co.</div>
+          <div class="client-logo">Design Studio</div>
+          <div class="client-logo">Early Peace</div>
+          <div class="client-logo">Harrison Arts</div>
+          <div class="client-logo">Urban Events</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-logo"></div>
+      <div class="footer-brand">Event Management System</div>
+
+      <div class="footer-meta">
+        889 Willow Way, Maryland, MD 35209 · (555) 123-4567 · hello@stageoneevents.com
+      </div>
+
+      <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="#team">Team</a>
+        <a href="#services">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+      </div>
+
+      <div class="footer-social">
+        <span>Facebook</span> ·
+        <span>Instagram</span> ·
+        <span>X</span>
+      </div>
+
+      <div class="footer-copy">
+        © <span id="year"></span> Event Management System — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

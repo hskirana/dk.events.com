@@ -1,0 +1,118 @@
+.img {
+  position: sticky;
+  width: 500px;
+  height: 800px;
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  filter: blur(5px);
+
+}
+
+.nav {
+  display: flex;
+  width: 1500px;
+  height: 60px;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+  position: absolute;
+  left: 1px;
+  top: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.ai {
+  font-size: 120%;
+  color: aliceblue;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.ai:hover {
+  color: rgb(234, 37, 37);   
+  letter-spacing: 1px;       
+  text-shadow: 0px 0px 8px rgba(234, 37, 37, 0.7); 
+}
+
+.ai::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+}
+
+.ai:hover::after {
+  width: 100%;
+}
+
+            .hom{
+                position:absolute;
+                left: 895px;
+                top: 35px;
+            }
+            .ab{
+                position:absolute;
+                left: 980px;
+                top: 35px;
+            }
+            .gal{
+                position:absolute;
+                left: 1090px;
+                top: 35px;
+            }
+            .ser{
+                position:absolute;
+                left: 1180px;
+                top: 35px;
+            }
+
+            .ven{
+                position:absolute;
+                left: 1280px;
+                top: 35px;
+            }
+            .con{
+                position:absolute;
+                left: 1370px;
+                top: 35px;
+            }
+.bl{
+  color: #ffff;
+  font-size: 160%;
+  font-family: 'Cormorant Garamond', serif;
+  position: absolute;
+  top: 495%;
+  left: 42%;
+  letter-spacing: 2px;
+}
+.wg{
+  color: #ffff;
+  font-size: 480%;
+  font-family: 'Playfair Display', serif;
+  position: absolute;
+  top: 400%;
+  left: 30%;
+    letter-spacing: 1px;
+
+}
+.po{
+  color: #ffff;
+  font-size: 150%;
+  font-family: 'Cormorant Garamond', serif;
+  position: absolute;
+  top: 790%;
+  left: 33%;
+    letter-spacing: 1px;
+
+}
+.logo{
+  position: absolute;
+  top:1%;
+  left: -1%;
+}
